@@ -43,7 +43,7 @@ end
 def find_beautiful_languages(languages)
   # Take languages and return a hash containing only languages which have the
   # key/value pair { is_beautiful?: true } listed in their information
-  languages.select { |_,value| value[:is_beautiful?] == true } 
+  languages.select { |_, value| value[:is_beautiful?] == true }
 end
 
 def find_language_facts(languages, language_name, fact_index = 0)
@@ -62,4 +62,6 @@ def find_language_facts(languages, language_name, fact_index = 0)
   #                 initial_release: 'December 4, 1995',
   #                 is_beautiful?: false }
   # }
+  #
+  languages.dig(language_name, :facts)&.[](fact_index)
 end
